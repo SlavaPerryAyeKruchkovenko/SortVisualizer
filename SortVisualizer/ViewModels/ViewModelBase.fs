@@ -1,4 +1,4 @@
-namespace SortVisualizer.ViewModels
+namespace ViewModels
 
 open ReactiveUI
 

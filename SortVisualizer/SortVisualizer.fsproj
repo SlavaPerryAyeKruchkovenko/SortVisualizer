@@ -4,14 +4,19 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <AvaloniaResource Include="Assets\**" />
     <None Remove=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\ViewModelBase.fs" />
-    <Compile Include="ViewModels\MainWindowViewModel.fs" />
+    <AvaloniaResource Include="Assets\**" />
+    <Compile Include="Converters\FShartListConverter.fs" />
+    <Compile Include="Models\ArrayEl.fs" />
+    <Compile Include="Views\MenuVisualizerView.axaml.fs" />
+    <Compile Include="Views\HolstView.axaml.fs" />
     <Compile Include="Views\MainWindow.axaml.fs" />
+    <Compile Include="ViewModels\ViewModelBase.fs" />
+    <Compile Include="ViewModels\MenuVisualizerViewModel.fs" />
+    <Compile Include="ViewModels\HolstViewModel.fs" />
+    <Compile Include="ViewModels\MainWindowViewModel.fs" />
     <Compile Include="ViewLocator.fs" />
     <Compile Include="App.axaml.fs" />
     <Compile Include="Program.fs" />

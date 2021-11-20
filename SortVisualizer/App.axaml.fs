@@ -3,8 +3,8 @@ namespace SortVisualizer
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.Markup.Xaml
-open SortVisualizer.ViewModels
-open SortVisualizer.Views
+open ViewModels
+open Views
 
 type App() =
     inherit Application()

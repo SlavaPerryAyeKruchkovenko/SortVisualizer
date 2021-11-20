@@ -1,0 +1,31 @@
+<UserControl
+    x:Class="Views.HolstView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+  <ItemsControl Items="{Binding Array}" x:Name="items">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <Canvas Classes="Purple" x:Name="holst"/>
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemTemplate>
+      <DataTemplate>
+        <ContentControl Content="{Binding Path=Value}"
+                        Width="{Binding Path=Weight, Mode=OneWay}" 
+                        Height="{Binding Path=Value, Mode=OneWay}"
+                        Background="White"
+                        Margin="{Binding Path=MarginLoc}"
+                        FontSize="12"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        BorderBrush="Red">
+        </ContentControl>
+      </DataTemplate>
+    </ItemsControl.ItemTemplate>
+  </ItemsControl>
+</UserControl>

@@ -7,6 +7,11 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <FluentTheme Mode="Light"/>
+      <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
+      <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml" />
+      <FluentTheme Mode="Light"/>
+      <Style Selector="Canvas.Purple">
+        <Setter Property="Background" Value="#9b111e"/>
+      </Style>
     </Application.Styles>
 </Application>

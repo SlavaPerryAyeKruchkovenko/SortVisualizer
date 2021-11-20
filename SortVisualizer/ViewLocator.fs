@@ -3,7 +3,7 @@ namespace SortVisualizer
 open System
 open Avalonia.Controls
 open Avalonia.Controls.Templates
-open SortVisualizer.ViewModels
+open ViewModels
 
 type ViewLocator() =
     interface IDataTemplate with
