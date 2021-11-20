@@ -1,0 +1,40 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="Button">
+    <Setter Property="VerticalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Background" Value="#7f7679"/>
+    <Setter Property="Opacity" Value="0.7"/>
+    <Setter Property="CornerRadius" Value="16"/>
+    <Setter Property="BorderBrush" Value="#997a8d"/>
+    <Setter Property="Margin" Value="5"/>
+  </Style>
+  <Style Selector="Label">
+    <Setter Property="VerticalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="FontWeight" Value="ExtraBold"/>
+    <Setter Property="Opacity" Value="0.7"/>
+    <Setter Property="Padding" Value="5"/>
+  </Style>
+  <Style Selector="TextBox">
+    <Setter Property="Background" Value="#7f7679"/>
+    <Setter Property="AcceptsReturn" Value="False"/>
+    <Setter Property="FontWeight" Value="ExtraBlack"/>
+    <Setter Property="Opacity" Value="0.7"/>
+    <Setter Property="Margin" Value="5"/>
+    <Setter Property="Padding" Value="5"/>
+  </Style>
+  <Style Selector="TextBox.NumPanel">
+    <Setter Property="Watermark" Value="Write num"/>
+  </Style>
+  <Style Selector="TextBox.ListPanel">
+    <Setter Property="Watermark" Value="Write array of num"/>
+  </Style>
+</Styles>

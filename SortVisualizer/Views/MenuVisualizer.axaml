@@ -5,18 +5,21 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Views.MenuVisualizerView"
              xmlns:local="clr-namespace:Converters">
+  <UserControl.Styles>
+    <StyleInclude Source="/Styles/MenuStyles.axaml"/>
+  </UserControl.Styles>
   <UserControl.Resources>
     <local:FShartListConverter x:Key="myConverter"/>
   </UserControl.Resources>
   <DockPanel>
     <StackPanel DockPanel.Dock="Top">
       <Label Content="Array for sort"/>
-      <TextBox Text="{Binding Array, Converter={StaticResource myConverter}}"/>
+      <TextBox Text="{Binding Array, Converter={StaticResource myConverter}}" Classes="ListPanel"/>
       <Label Content="Delay"/>
-      <TextBox Text="{Binding Delay}"/>
+      <TextBox Text="{Binding Delay}" Classes="NumPanel"/>
     </StackPanel>
     <StackPanel DockPanel.Dock="Bottom">
-      
+      <Button Content="Start"/>
     </StackPanel>
     <StackPanel/>
   </DockPanel>

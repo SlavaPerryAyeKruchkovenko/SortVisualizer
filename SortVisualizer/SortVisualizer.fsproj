@@ -10,6 +10,7 @@
     <AvaloniaResource Include="Assets\**" />
     <Compile Include="Converters\FShartListConverter.fs" />
     <Compile Include="Models\ArrayEl.fs" />
+    <Compile Include="Models\Sorter.fs" />
     <Compile Include="Views\MenuVisualizerView.axaml.fs" />
     <Compile Include="Views\HolstView.axaml.fs" />
     <Compile Include="Views\MainWindow.axaml.fs" />

@@ -3,8 +3,11 @@
 open Avalonia
 
 type ArrayEl(value,loc,weight) =
-    member val Value = value with get
-    member val Location: Point = loc with get
-    member val MarginLoc:Thickness = new Thickness(loc.X,loc.Y) with get
-    member val Weight:int = weight with get
+    let mutable location:Point = loc
+    member val Value:int = value with get   
+    member val Weight:float = weight with get,set
+    member __.Location 
+        with get() = location 
+        and set(value) = location <- value 
+    member __.MarginLoc with get() = new Thickness(location.X,location.Y)  
 
