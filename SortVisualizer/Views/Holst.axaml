@@ -10,7 +10,10 @@
   <ItemsControl Items="{Binding Array}" x:Name="items">
     <ItemsControl.ItemsPanel>
       <ItemsPanelTemplate>
-        <Canvas Classes="Purple" x:Name="holst"/>
+        <Canvas Classes="Red" x:Name="holst"
+                  Width="{Binding Weight, Mode=OneWayToSource}"
+                  Height="{Binding Height, Mode=OneWayToSource}"
+                  PropertyChanged="ChangeSize"/>
       </ItemsPanelTemplate>
     </ItemsControl.ItemsPanel>
     <ItemsControl.ItemTemplate>

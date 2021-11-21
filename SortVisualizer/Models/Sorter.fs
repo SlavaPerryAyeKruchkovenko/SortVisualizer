@@ -5,25 +5,26 @@ open System.Linq
 
 [<AbstractClass>]
 type Sorter()=
-    abstract member Sort: ArrayEl [] -> ArrayEl [] seq
+    abstract member Sort: int [] -> int [] []
 
 type ShakerSort() = 
     inherit Sorter()
     override this.Sort(array) =
-        let mutable flag = false 
+        let mutable flag = true 
         let swap j =
             flag <- true
             let num = array.[j]
             array.[j] <- array.[j+1]
-            array.[j+1] <- num         
-            array
+            array.[j+1] <- num    
+            array.ToArray()
 
-        seq{for i in 0..array.Count()/2 do            
-                if flag then
-                    flag <- false 
-                    for j in 0 .. (array.Count() - i - 1) do
-                        if array.[j].Value > array.[j+1].Value then
-                            yield swap j
-                    for j in (array.Count() - 2 - i) .. -1 ..0 do
-                        if array.[j-1].Value > array.[j].Value then
-                            yield swap(j-1)}
+        [|for i in 0..array.Count()/2 do            
+            if flag then
+                flag <- false 
+                for j in i .. (array.Count() - i - 2) do
+                    if array.[j] > array.[j+1] then
+                        yield swap j
+                for j in (array.Count() - 2 - i) .. -1 ..i+1 do
+                    if array.[j-1] > array.[j] then
+                        yield swap(j-1)
+                yield array|]

@@ -11,7 +11,7 @@
   <UserControl.Resources>
     <local:FShartListConverter x:Key="myConverter"/>
   </UserControl.Resources>
-  <DockPanel>
+  <DockPanel Background="#fffdb9">
     <StackPanel DockPanel.Dock="Top">
       <Label Content="Array for sort"/>
       <TextBox Text="{Binding Array, Converter={StaticResource myConverter}}" Classes="ListPanel"/>
@@ -19,7 +19,7 @@
       <TextBox Text="{Binding Delay}" Classes="NumPanel"/>
     </StackPanel>
     <StackPanel DockPanel.Dock="Bottom">
-      <Button Content="Start"/>
+      <Button Content="Start" Command="{Binding $parent[Window].DataContext.Sort}"/>
     </StackPanel>
     <StackPanel/>
   </DockPanel>

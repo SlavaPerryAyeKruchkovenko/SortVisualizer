@@ -4,7 +4,7 @@ open Avalonia
 
 type ArrayEl(value,loc,weight) =
     let mutable location:Point = loc
-    member val Value:int = value with get   
+    member val Value:int = value with get,set   
     member val Weight:float = weight with get,set
     member __.Location 
         with get() = location 

@@ -1,6 +1,7 @@
 namespace ViewModels
 
 open Avalonia.Controls
+open Models
 
 type MainWindowViewModel() =
     inherit ViewModelBase()
@@ -9,4 +10,4 @@ type MainWindowViewModel() =
     member __.Holst with get() = holst
     member __.Menu with get() = menu
     member this.Sort() =
-        holst.Instalize(menu.Array)
+        holst.Visualize(menu.Array |> List.toArray,new ShakerSort(),menu.Delay)
