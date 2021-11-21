@@ -9,14 +9,14 @@ type Sorter()=
 
 type ShakerSort() = 
     inherit Sorter()
-    override this.Sort(array) =
+    override this.Sort array =
         let mutable flag = true 
         let swap j =
             flag <- true
             let num = array.[j]
             array.[j] <- array.[j+1]
             array.[j+1] <- num    
-            array.ToArray()
+            array |> Seq.toArray
 
         [|for i in 0..array.Count()/2 do            
             if flag then
@@ -26,5 +26,4 @@ type ShakerSort() =
                         yield swap j
                 for j in (array.Count() - 2 - i) .. -1 ..i+1 do
                     if array.[j-1] > array.[j] then
-                        yield swap(j-1)
-                yield array|]
+                        yield swap(j-1)|]

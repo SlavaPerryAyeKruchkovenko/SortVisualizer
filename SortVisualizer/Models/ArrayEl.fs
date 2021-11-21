@@ -10,4 +10,5 @@ type ArrayEl(value,loc,weight) =
         with get() = location 
         and set(value) = location <- value 
     member __.MarginLoc with get() = new Thickness(location.X,location.Y)  
+    member val IsSelect = false with get,set
 

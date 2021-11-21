@@ -4,6 +4,7 @@ open System.Globalization
 open System.Linq
 open System
 open System.Text
+open Avalonia.Media
 
 type FShartListConverter() =
     interface IValueConverter with
@@ -21,6 +22,17 @@ type FShartListConverter() =
             let answer= try
                             str.Split(",") |> Array.map(fun x-> Int32.Parse(x.Trim())) |> Array.toList
                         with
-                        | _ -> [0]
+                        | _ -> [30;20;10]
             upcast answer   
+
+type ColorConverter()=
+    interface IValueConverter with
+        member this.Convert(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
+            let isSelect:bool = downcast value 
+            if isSelect then
+                upcast Brushes.Red
+            else
+                upcast Brushes.Orange
+        member this.ConvertBack(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
+            upcast false
 

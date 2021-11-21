@@ -10,7 +10,7 @@
       <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
       <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml" />
       <Style Selector="Canvas.Red">
-        <Setter Property="Background" Value="#9b111e"/>
+        <Setter Property="Background" Value="#ca0147"/>
       </Style>
     </Application.Styles>
 </Application>

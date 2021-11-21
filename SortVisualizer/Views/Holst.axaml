@@ -6,11 +6,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:Converters">
+  <UserControl.Resources>
+    <local:ColorConverter x:Key="myConverter"/>
+  </UserControl.Resources>
   <ItemsControl Items="{Binding Array}" x:Name="items">
     <ItemsControl.ItemsPanel>
       <ItemsPanelTemplate>
-        <Canvas Classes="Red" x:Name="holst"
+        <Canvas Background="#87ceeb" x:Name="holst"
                   Width="{Binding Weight, Mode=OneWayToSource}"
                   Height="{Binding Height, Mode=OneWayToSource}"
                   PropertyChanged="ChangeSize"/>
@@ -21,12 +25,15 @@
         <ContentControl Content="{Binding Path=Value}"
                         Width="{Binding Path=Weight, Mode=OneWay}" 
                         Height="{Binding Path=Value, Mode=OneWay}"
-                        Background="White"
+                        Background="#fce883"
                         Margin="{Binding Path=MarginLoc}"
                         FontSize="12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
                         VerticalContentAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        BorderBrush="Red">
+                        BorderBrush="{Binding IsSelect,Mode=OneWay, Converter={StaticResource myConverter}}"
+                        BorderThickness="2">
         </ContentControl>
       </DataTemplate>
     </ItemsControl.ItemTemplate>
