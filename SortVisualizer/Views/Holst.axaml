@@ -30,8 +30,8 @@
                         FontSize="12"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
-                        VerticalContentAlignment="Stretch"
-                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
                         BorderBrush="{Binding IsSelect,Mode=OneWay, Converter={StaticResource myConverter}}"
                         BorderThickness="2">
         </ContentControl>
