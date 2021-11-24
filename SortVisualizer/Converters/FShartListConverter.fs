@@ -32,7 +32,7 @@ type ColorConverter()=
             if isSelect then
                 upcast Brushes.Red
             else
-                upcast Brushes.Orange
+                upcast Brush.Parse "#f4a460"
         member this.ConvertBack(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
             upcast false
 

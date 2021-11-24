@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,11 +9,11 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
     <Compile Include="Converters\FShartListConverter.fs" />
-    <Compile Include="Models\ArrayEl.fs" />
-    <Compile Include="Models\Sorter.fs" />
     <Compile Include="Views\MenuVisualizerView.axaml.fs" />
     <Compile Include="Views\HolstView.axaml.fs" />
     <Compile Include="Views\MainWindow.axaml.fs" />
+    <Compile Include="Models\ArrayEl.fs" />
+    <Compile Include="Models\Sorter.fs" />
     <Compile Include="ViewModels\ViewModelBase.fs" />
     <Compile Include="ViewModels\MenuVisualizerViewModel.fs" />
     <Compile Include="ViewModels\HolstViewModel.fs" />
