@@ -17,7 +17,7 @@ type MainWindowViewModel() =
     member __.Start = ReactiveCommand.Create<Unit>(__.Sort,__.WhenAnyValue(fun vm -> vm.isEx))
     member this.Sort() =
         this.isEx <- false
-        holst.Visualize(menu.Array |> List.toArray,new ShakerSort(),menu.Delay)
+        holst.Visualize(menu.Array |> List.toArray,new MergeSort(),menu.Delay)
         this.isEx <- true
         Unit.Default
         //return Task.Run( ()->)

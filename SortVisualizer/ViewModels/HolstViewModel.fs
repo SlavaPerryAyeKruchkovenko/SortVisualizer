@@ -17,22 +17,33 @@ type HolstViewModel() =
     member val Weight = 0.0 with get,set
     member this.Visualize(valueList:int [],sorter:Sorter,delay:int)=
         let cnvrtToArray list =
-            let elWeight = this.Weight / float(valueList.Count() * 2)
+            let elWeight = this.Weight / float(valueList.Length * 2)
             let mutable x = elWeight / 2.0
             let mutable y = 0.0
             [|for value in list do
-                y <- this.Height - float value
-                new ArrayEl(value,new Point(x,y),elWeight)
-                x <- x+elWeight*2.0|]
+                let size = 
+                    if value > 20 && value < int this.Height then 
+                        y <- this.Height - float value
+                        new Size(elWeight,float value)                  
+                    elif value > int this.Height then 
+                        y <- 0.0
+                        new Size(elWeight,this.Height)
+                    else 
+                        y <- this.Height - 20.0
+                        new Size(elWeight,20.0)
+                new ArrayEl(value,new Point(x,y),size)
+                x <- x + elWeight*2.0|]
         let checkArrs(newArr:ArrayEl [],lastArr:ArrayEl []) =
-            let mutable count = 0
-            let mutable isExist = false
-            while count < lastArr.Length && not isExist do
-                if newArr.[count].Value <> lastArr.[count].Value then
-                    newArr.[count].IsSelect <- true
-                    newArr.[count+1].IsSelect <- true
+            let count = ref 0
+            let value (num:'a ref) = num.Value
+            let mutable isExist = count.Value = 0
+            while count.Value < lastArr.Length && not isExist do
+                let c = value count
+                if newArr.[c].Value <> lastArr.[c].Value then
+                    newArr.[c].IsSelect <- true
+                    newArr.[c+1].IsSelect <- true
                     isExist <- true
-                count <- count + 1
+                incr count
 
         let task = async{
             let mutable lastArr = cnvrtToArray valueList 
@@ -45,7 +56,7 @@ type HolstViewModel() =
                 for el in newArr do                      
                     Dispatcher.UIThread.InvokeAsync(fun () -> list.Add el).Wait() |> ignore   
                     do! Task.Delay delay |> Async.AwaitTask
-                lastArr <- newArr
+                lastArr <- newArr    
         }
         task |> Async.Start
         

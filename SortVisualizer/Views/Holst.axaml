@@ -23,8 +23,8 @@
     <ItemsControl.ItemTemplate>
       <DataTemplate>
         <ContentControl Content="{Binding Path=Value}"
-                        Width="{Binding Path=Weight, Mode=OneWay}" 
-                        Height="{Binding Path=Value, Mode=OneWay}"
+                        Width="{Binding Path=Size.Width, Mode=OneWay}" 
+                        Height="{Binding Path=Size.Height, Mode=OneWay}"
                         Background="#fce883"
                         Margin="{Binding Path=MarginLoc}"
                         FontSize="12"

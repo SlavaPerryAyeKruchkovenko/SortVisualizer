@@ -19,6 +19,7 @@
       <TextBox Text="{Binding Delay}" Classes="NumPanel"/>
     </StackPanel>
     <StackPanel DockPanel.Dock="Bottom">
+      <ContextMenu Items=""/>
       <Button Content="Start" Command="{Binding $parent[Window].DataContext.Start}"/>
     </StackPanel>
     <StackPanel/>
