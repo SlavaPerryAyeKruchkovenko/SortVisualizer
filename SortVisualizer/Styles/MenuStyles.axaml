@@ -13,6 +13,11 @@
     <Setter Property="BorderBrush" Value="#00a550"/>
     <Setter Property="Margin" Value="5"/>
   </Style>
+  <Style Selector="ContextMenu">
+    <Setter Property="CornerRadius" Value="16"/>
+    <Setter Property="BorderBrush" Value="#00a550"/>
+    <Setter Property="Background" Value="#54ff9f"/>
+  </Style>
   <Style Selector="Label">
     <Setter Property="VerticalAlignment" Value="Stretch"/>
     <Setter Property="HorizontalAlignment" Value="Stretch"/>

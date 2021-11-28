@@ -35,4 +35,16 @@ type ColorConverter()=
                 upcast Brush.Parse "#f4a460"
         member this.ConvertBack(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
             upcast false
+type TypesConverter() =
+    interface IValueConverter with
+        member this.Convert(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
+            let t:Type= downcast value
+            let str = t.ToString()
+            let arr = str.Split('.')
+            if arr.Length > 1 then
+                upcast Array.last(arr)
+            else
+                upcast arr.[0]
+        member this.ConvertBack(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
+            value
 

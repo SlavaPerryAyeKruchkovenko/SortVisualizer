@@ -10,6 +10,7 @@
   </UserControl.Styles>
   <UserControl.Resources>
     <local:FShartListConverter x:Key="myConverter"/>
+    <local:TypesConverter x:Key="typeConverter"/>
   </UserControl.Resources>
   <DockPanel Background="#fffdb9">
     <StackPanel DockPanel.Dock="Top">
@@ -17,9 +18,12 @@
       <TextBox Text="{Binding Array, Converter={StaticResource myConverter}}" Classes="ListPanel"/>
       <Label Content="Delay"/>
       <TextBox Text="{Binding Delay}" Classes="NumPanel"/>
+      <Label Content="Sort Type"/>
+      <TextBox Text="{Binding Select, Mode=OneWay, Converter={StaticResource typeConverter}}" Classes="NumPanel" IsReadOnly="True"/>
     </StackPanel>
     <StackPanel DockPanel.Dock="Bottom">
-      <ContextMenu Items=""/>
+      <ContextMenu Items="{Binding Sorts, Mode=OneTime}" SelectedItem="{Binding Select}"
+                   Margin="10"/>
       <Button Content="Start" Command="{Binding $parent[Window].DataContext.Start}"/>
     </StackPanel>
     <StackPanel/>

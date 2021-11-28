@@ -2,6 +2,7 @@ namespace Views
 
 open Avalonia.Controls
 open Avalonia.Markup.Xaml
+open Avalonia.Interactivity
 
 type MenuVisualizerView () as this = 
     inherit UserControl ()
@@ -10,3 +11,4 @@ type MenuVisualizerView () as this =
 
     member private this.InitializeComponent() =
         AvaloniaXamlLoader.Load(this)
+         

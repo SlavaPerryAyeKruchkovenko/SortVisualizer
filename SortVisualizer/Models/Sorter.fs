@@ -6,6 +6,7 @@ open System.Linq
 [<AbstractClass>]
 type Sorter()=
     abstract member Sort: int [] -> int [] []
+    abstract member AddVisual: ArrayEl [] * ArrayEl [] -> unit
 
 type ShakerSort() = 
     inherit Sorter()
@@ -27,6 +28,17 @@ type ShakerSort() =
                 for j in (array.Count() - 2 - i) .. -1 ..i+1 do
                     if array.[j-1] > array.[j] then
                         yield swap(j-1)|]
+    override this.AddVisual(newArr,lastArr) = 
+        let count = ref 0
+        let value (num:'a ref) = num.Value
+        let mutable isExist = count.Value = 0
+        while count.Value < lastArr.Length && not isExist do
+            let c = value count
+            if newArr.[c].Value <> lastArr.[c].Value then
+                newArr.[c].IsSelect <- true
+                newArr.[c+1].IsSelect <- true
+                isExist <- true
+            incr count
 
 type MergeSort() = 
     inherit Sorter()
@@ -64,3 +76,5 @@ type MergeSort() =
         let newArr = array |> Array.toList
         sort newArr|> ignore
         list |> List.rev |> List.toArray |> Array.map(fun x-> x |> List.toArray)
+    override this.AddVisual(newtArr,lastArr) = 
+        ()

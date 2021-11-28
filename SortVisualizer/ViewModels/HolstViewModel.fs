@@ -1,9 +1,7 @@
 ﻿namespace ViewModels
 
-open ReactiveUI
 open System.Collections.ObjectModel
 open Models
-open System.Linq
 open System.Threading.Tasks
 open Avalonia
 open Avalonia.Threading
@@ -33,17 +31,6 @@ type HolstViewModel() =
                         new Size(elWeight,20.0)
                 new ArrayEl(value,new Point(x,y),size)
                 x <- x + elWeight*2.0|]
-        let checkArrs(newArr:ArrayEl [],lastArr:ArrayEl []) =
-            let count = ref 0
-            let value (num:'a ref) = num.Value
-            let mutable isExist = count.Value = 0
-            while count.Value < lastArr.Length && not isExist do
-                let c = value count
-                if newArr.[c].Value <> lastArr.[c].Value then
-                    newArr.[c].IsSelect <- true
-                    newArr.[c+1].IsSelect <- true
-                    isExist <- true
-                incr count
 
         let task = async{
             let mutable lastArr = cnvrtToArray valueList 
@@ -52,7 +39,7 @@ type HolstViewModel() =
             for arr in sorter.Sort valueList do                
                 Dispatcher.UIThread.InvokeAsync(fun () -> list.Clear()).Wait() |> ignore  
                 let newArr = cnvrtToArray arr
-                checkArrs(newArr,lastArr)
+                sorter.AddVisual(newArr,lastArr)
                 for el in newArr do                      
                     Dispatcher.UIThread.InvokeAsync(fun () -> list.Add el).Wait() |> ignore   
                     do! Task.Delay delay |> Async.AwaitTask
