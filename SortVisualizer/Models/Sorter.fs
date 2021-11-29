@@ -31,7 +31,7 @@ type ShakerSort() =
     override this.AddVisual(newArr,lastArr) = 
         let count = ref 0
         let value (num:'a ref) = num.Value
-        let mutable isExist = count.Value = 0
+        let mutable isExist = false
         while count.Value < lastArr.Length && not isExist do
             let c = value count
             if newArr.[c].Value <> lastArr.[c].Value then

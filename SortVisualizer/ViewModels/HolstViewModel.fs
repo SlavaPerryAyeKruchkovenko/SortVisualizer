@@ -31,18 +31,18 @@ type HolstViewModel() =
                         new Size(elWeight,20.0)
                 new ArrayEl(value,new Point(x,y),size)
                 x <- x + elWeight*2.0|]
-
+        list.Clear()
         let task = async{
             let mutable lastArr = cnvrtToArray valueList 
             lastArr |> Array.map( fun x -> lock list (fun () -> list.Add x)) |> ignore
-
+            do! Task.Delay delay |> Async.AwaitTask
             for arr in sorter.Sort valueList do                
                 Dispatcher.UIThread.InvokeAsync(fun () -> list.Clear()).Wait() |> ignore  
                 let newArr = cnvrtToArray arr
                 sorter.AddVisual(newArr,lastArr)
                 for el in newArr do                      
                     Dispatcher.UIThread.InvokeAsync(fun () -> list.Add el).Wait() |> ignore   
-                    do! Task.Delay delay |> Async.AwaitTask
+                do! Task.Delay delay |> Async.AwaitTask   
                 lastArr <- newArr    
         }
         task |> Async.Start
