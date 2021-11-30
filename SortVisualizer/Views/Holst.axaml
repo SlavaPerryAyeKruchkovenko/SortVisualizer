@@ -32,7 +32,7 @@
                         HorizontalAlignment="Center"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        BorderBrush="{Binding IsSelect,Mode=OneWay, Converter={StaticResource myConverter}}"
+                        BorderBrush="{Binding Condition,Mode=OneWay, Converter={StaticResource myConverter}}"
                         BorderThickness="2">
         </ContentControl>
       </DataTemplate>

@@ -5,6 +5,7 @@ open System.Linq
 open System
 open System.Text
 open Avalonia.Media
+open Models
 
 type FShartListConverter() =
     interface IValueConverter with
@@ -28,13 +29,16 @@ type FShartListConverter() =
 type ColorConverter()=
     interface IValueConverter with
         member this.Convert(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
-            let isSelect:bool = downcast value 
-            if isSelect then
-                upcast Brushes.Red
-            else
-                upcast Brush.Parse "#f4a460"
+            let cond:Conditions = downcast value 
+            match cond with
+            | Conditions.defaultCond -> upcast Brush.Parse "#f4a460"
+            | Conditions.select -> upcast Brushes.Red
+            | Conditions.left -> upcast Brushes.Blue
+            | Conditions.right -> upcast Brushes.Black
+            | _ -> upcast Brushes.Aqua
+               
         member this.ConvertBack(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 
-            upcast false
+            upcast Conditions.defaultCond
 type TypesConverter() =
     interface IValueConverter with
         member this.Convert(value: obj, targetType: Type, parameter: obj, culture: CultureInfo): obj = 

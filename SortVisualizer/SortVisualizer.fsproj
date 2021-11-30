@@ -11,9 +11,9 @@
     <Compile Include="Views\MenuVisualizerView.axaml.fs" />
     <Compile Include="Views\HolstView.axaml.fs" />
     <Compile Include="Views\MainWindow.axaml.fs" />
-    <Compile Include="Converters\FShartListConverter.fs" />
     <Compile Include="Models\ArrayEl.fs" />
     <Compile Include="Models\Sorter.fs" />
+    <Compile Include="Converters\FShartListConverter.fs" />
     <Compile Include="ViewModels\ViewModelBase.fs" />
     <Compile Include="ViewModels\MenuVisualizerViewModel.fs" />
     <Compile Include="ViewModels\HolstViewModel.fs" />
